@@ -39,13 +39,13 @@ All notebooks open directly in Google Colab — no download or account required 
 | Chapter | Topic | Structural Engineering Context | Open in Colab |
 |---------|-------|-------------------------------|---------------|
 | 9 | **Samples** | Estimating building loads from floor inspections; Hyatt Regency collapse | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rkn2/hdr-hs-engmech/blob/main/Chapter_9.ipynb) |
-| 10 | Observational Studies | *(coming soon)* | — |
-| 11 | Understanding Randomness | *(coming soon)* | — |
-| 12 | Counting Principles | *(coming soon)* | — |
-| 13 | Probability | *(coming soon)* | — |
-| 14 | Probability Rules | *(coming soon)* | — |
-| 15 | Probability Models | *(coming soon)* | — |
-| 16 | Confidence Intervals | *(coming soon)* | — |
+| 10 | **Observational Studies** | Bridge sensor data; confounding variables; I-35W Minneapolis collapse | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rkn2/hdr-hs-engmech/blob/main/Chapter_10.ipynb) |
+| 11 | **Understanding Randomness** | Steel material variability (ASTM A572); Law of Large Numbers in mill testing | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rkn2/hdr-hs-engmech/blob/main/Chapter_11.ipynb) |
+| 12 | **Counting Principles** | ASCE 7-10 load combinations; Hartford Civic Center roof collapse | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rkn2/hdr-hs-engmech/blob/main/Chapter_12.ipynb) |
+| 13 | **Probability** | Return periods; annual exceedance probability; design life risk | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rkn2/hdr-hs-engmech/blob/main/Chapter_13.ipynb) |
+| 14 | **Probability Rules** | Series vs. parallel structural systems; progressive collapse; Ronan Point | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rkn2/hdr-hs-engmech/blob/main/Chapter_14.ipynb) |
+| 15 | **Probability Models** | Normal distribution of loads and resistances; LRFD reliability index β | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rkn2/hdr-hs-engmech/blob/main/Chapter_15.ipynb) |
+| 16 | **Confidence Intervals** | Bridge load testing; margin of error in stiffness estimates; Silver Bridge | [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rkn2/hdr-hs-engmech/blob/main/Chapter_16.ipynb) |
 
 ---
 
