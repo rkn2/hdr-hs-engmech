@@ -23,6 +23,18 @@ cell("markdown","title",[
 "- Explain why engineers must check *every* load combination — and what happens when one is missed\n",
 ]),
 
+cell("markdown","photo",[
+"<center>\n",
+"<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Hartford_Civic_Center_Coliseum.jpg/800px-Hartford_Civic_Center_Coliseum.jpg' width='650' />\n",
+"\n",
+"<em>The Hartford Civic Center, Hartford, Connecticut. The roof of the arena collapsed "
+"in January 1978 under accumulated snow and dead load — eighteen hours after 5,000 fans left a basketball game. "
+"(Wikimedia Commons — CC BY-SA.)</em>\n",
+"</center>\n",
+"\n",
+"---\n",
+]),
+
 cell("code","setup",[
 "import subprocess, sys\n",
 "subprocess.run([sys.executable,'-m','pip','install','ipywidgets','--quiet'])\n",
@@ -76,7 +88,10 @@ cell("code","widget1",[
 "    'Rain (R)':         {'R':1.6, 'combo':'Roof'},\n",
 "}\n",
 "\n",
-"# Representative nominal loads (kips)\n",
+"# Representative nominal loads (kips) — loosely based on the two-story office building\n",
+"# discussed in Hibbeler §1.2-1.3 context (dead load from floor/roof system,\n",
+"# live load from ASCE 7-10 Table 4-1 office occupancy). Values are illustrative;\n",
+"# Hibbeler does not tabulate a single canonical example with all seven load types.\n",
 "NOMINAL = {'D':40, 'L':20, 'Lr':10, 'S':15, 'W':12, 'E':18, 'R':8}\n",
 "\n",
 "COMBINATIONS = [\n",

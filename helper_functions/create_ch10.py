@@ -23,6 +23,18 @@ cell("markdown","title",[
 "- Connect post-collapse investigations to observational study methodology\n",
 ]),
 
+cell("markdown","photo",[
+"<center>\n",
+"<img src='https://upload.wikimedia.org/wikipedia/commons/8/83/I35W_bridge_collapse_TLR1.jpg' width='700' />\n",
+"\n",
+"<em>The I-35W Mississippi River Bridge, Minneapolis, seconds after collapse on August 1, 2007. "
+"Thirteen people died; the investigation became a landmark in observational structural analysis. "
+"(NTSB — public domain.)</em>\n",
+"</center>\n",
+"\n",
+"---\n",
+]),
+
 cell("code","setup",[
 "import subprocess, sys\n",
 "subprocess.run([sys.executable,'-m','pip','install','ipywidgets','--quiet'])\n",

@@ -23,6 +23,18 @@ cell("markdown","title",[
 "- Connect the reliability index β to everyday probability language\n",
 ]),
 
+cell("markdown","photo",[
+"<center>\n",
+"<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Beam_bending_test.jpg/800px-Beam_bending_test.jpg' width='650' />\n",
+"\n",
+"<em>A steel beam being tested to failure in a structural laboratory. "
+"The distribution of test results — not any single test — defines the resistance curve used in LRFD design. "
+"(Wikimedia Commons — CC BY-SA.)</em>\n",
+"</center>\n",
+"\n",
+"---\n",
+]),
+
 cell("code","setup",[
 "import subprocess, sys\n",
 "subprocess.run([sys.executable,'-m','pip','install','ipywidgets','--quiet'])\n",
@@ -33,7 +45,8 @@ cell("code","setup",[
 "from IPython.display import display\n",
 "%matplotlib inline\n",
 "np.random.seed(15)\n",
-"print('Setup complete. (scipy is pre-installed in Colab)')\n",
+"print('Setup complete.')\n",
+"print('  [scipy is pre-installed in Google Colab — no extra install needed for this chapter]')\n",
 ]),
 
 cell("markdown","why",[
@@ -62,7 +75,7 @@ cell("markdown","why",[
 "\n",
 "$$\\beta = \\frac{\\mu_R - \\mu_S}{\\sqrt{\\sigma_R^2 + \\sigma_S^2}}$$\n",
 "\n",
-"β measures how many standard deviations separate the mean resistance from the mean load. Modern codes (LRFD) are calibrated so that typical structural members achieve **β ≈ 3.5**, corresponding to a failure probability of about **1 in 5,000** per year.\n",
+"β measures how many standard deviations separate the mean resistance from the mean load. Modern codes (LRFD) are calibrated so that typical structural members achieve **β ≈ 3.5**, corresponding to a failure probability of about **1 in 5,000** per year. *(The β = 3.5 target comes from AISC calibration studies — Hibbeler references LRFD throughout but does not derive this value; it is presented here as context, not as content students are expected to reproduce.)*\n",
 ]),
 
 cell("markdown","exp1intro",[
@@ -161,6 +174,11 @@ cell("markdown","casestudy",[
 "These numbers were not chosen by guessing. They were **calibrated using the reliability index β** so that typical structural members achieve a consistent probability of failure regardless of the load type or material.\n",
 "\n",
 "> *The load factors and resistance factors in Hibbeler's design examples are the normal distribution's influence on structural engineering — translated into numbers a practicing engineer can use every day.*\n",
+"\n",
+"*(Note: The specific factors 1.2, 1.6, and φ = 0.9 were derived through calibration studies — "
+"not from first principles in the textbook. They represent a committee's solution to the optimization problem: "
+"what factors produce β ≈ 3.5 across the range of typical structures? "
+"Hibbeler presents them as given; the derivation lives in AISC LRFD Commentary.)*\n",
 ]),
 
 cell("markdown","exp2intro",[

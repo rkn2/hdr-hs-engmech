@@ -23,6 +23,19 @@ cell("markdown","title",[
 "- Connect structural reliability to the everyday idea of probability\n",
 ]),
 
+cell("markdown","photo",[
+"<center>\n",
+"<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/I-35W_Saint_Anthony_Falls_Bridge.jpg/1280px-I-35W_Saint_Anthony_Falls_Bridge.jpg' width='700' />\n",
+"\n",
+"<em>The St. Anthony Falls Bridge, Minneapolis — replacement for the I-35W bridge that collapsed in 2007. "
+"Before opening in 2008, MnDOT placed 2 million pounds of test loads on the bridge and measured deflections "
+"at dozens of locations. This is proof load testing in action. "
+"(Wikimedia Commons — public domain.)</em>\n",
+"</center>\n",
+"\n",
+"---\n",
+]),
+
 cell("code","setup",[
 "import subprocess, sys\n",
 "subprocess.run([sys.executable,'-m','pip','install','ipywidgets','--quiet'])\n",
@@ -42,7 +55,7 @@ cell("markdown","why",[
 "\n",
 "The fundamental question is: **over the life of this structure, what is the probability it will be subjected to a load exceeding its design capacity?**\n",
 "\n",
-"Hibbeler §1.3 notes that design loads are specified by codes like ASCE 7-10 and are determined from *historical observation of loading events*. Those code values are not the absolute maximum load ever recorded — they are loads with a specified **annual probability of exceedance**.\n",
+"Hibbeler §1.3 notes that design loads are specified by codes like ASCE 7-10 and are determined from *historical observation of loading events*. Those code values are not the absolute maximum load ever recorded — they are loads with a specified **annual probability of exceedance**. *(Note: Hibbeler references ASCE 7-10 for load values but does not derive return periods directly — that derivation lives in ASCE 7-10 itself. This chapter uses return periods as context for the probability concepts, not as textbook content students are expected to reproduce.)*\n",
 "\n",
 "### The Return Period\n",
 "\n",
@@ -127,23 +140,27 @@ cell("code","widget1",[
 
 cell("markdown","casestudy",[
 "---\n",
-"## ⚠️  Real-World Case: The Midwest Floods of 1993 — A \"500-Year Flood\" or Just Bad Luck?\n",
+"## ⚠️  Real-World Case: How AASHTO Chooses a 75-Year Return Period for Bridge Live Loads\n",
 "\n",
-"In the summer of 1993, the Upper Mississippi River basin experienced catastrophic flooding. The flood levels at many gauging stations exceeded what had been designated as the \"100-year flood\" — the level with a 1% annual exceedance probability. Some stations recorded levels that exceeded the \"500-year flood\" mark.\n",
+"The **AASHTO LRFD Bridge Design Specifications** — the primary code for highway bridges in the United States — specify that bridge live loads shall be based on a **75-year return period**. Why 75 years? Because that is the standard design life for a new highway bridge.\n",
 "\n",
-"Bridges and levees designed to the 100-year standard were overtopped or failed. In the aftermath, critics asked: *were these structures underdesigned?*\n",
+"Here is the probability reasoning behind that choice:\n",
 "\n",
-"The answer involves understanding what probability actually means over a lifetime:\n",
+"The AASHTO HL-93 design truck represents the heaviest vehicle load with approximately a "
+"**1-in-75 annual probability** of being equaled or exceeded on a given bridge. "
+"Over a 75-year design life:\n",
 "\n",
-"- A bridge with a 50-year design life, designed for a 100-year flood:\n",
-"  $P = 1 - (1 - 0.01)^{50} = 39.5\\%$ chance of being exceeded at least once\n",
+"$$P(\\\\text{design load exceeded at least once}) = 1 - \\\\left(1 - \\\\frac{1}{75}\\\\right)^{75} \\\\approx 63\\\\%$$\n",
 "\n",
-"- That same bridge designed for a 500-year flood:\n",
-"  $P = 1 - (1 - 0.002)^{50} = 9.5\\%$ chance of being exceeded\n",
+"In other words, the AASHTO live load is **not** a load that will never be exceeded. It is a load with a 63% chance of being exceeded at least once over the bridge's life. Engineers accept this because:\n",
 "\n",
-"The structures were not underdesigned for the probability level their codes specified. The public — and sometimes engineers — simply misunderstood what \"100-year flood\" means.\n",
+"1. **Load factors** in AASHTO LRFD (1.75 × live load for the strength limit state) add a margin above the nominal design load\n",
+"2. **Resistance factors** (φ ≈ 0.9 for bending) ensure the beam's actual strength exceeds the factored demand\n",
+"3. Together, these keep the true probability of structural failure far below 63%\n",
 "\n",
-"> *A 100-year flood is not a promise that you won't see one for 100 years. It is a probability statement — and over a 50-year bridge life, there is nearly a 40% chance of experiencing one.*\n",
+"The 75-year return period is not a guess — it is the answer to a specific probability question: *what load level, combined with appropriate safety factors, keeps bridge failure probability acceptably low over a standard design life?*\n",
+"\n",
+"> *Return periods in structural codes are chosen by working backward from acceptable risk — not forward from historical records alone.*\n",
 ]),
 
 cell("markdown","exp2intro",[

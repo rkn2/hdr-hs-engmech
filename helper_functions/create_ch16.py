@@ -23,6 +23,20 @@ cell("markdown","title",[
 "- Connect the width of a confidence interval to sample size and measurement variability\n",
 ]),
 
+cell("markdown","photo",[
+"<center>\n",
+"<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/I-35W_Saint_Anthony_Falls_Bridge.jpg/1280px-I-35W_Saint_Anthony_Falls_Bridge.jpg' width='700' />\n",
+"\n",
+"<em>The St. Anthony Falls Bridge, Minneapolis — the replacement for the I-35W bridge that collapsed in 2007. "
+"Before opening in September 2008, MnDOT placed 2 million pounds of precast concrete barriers on the bridge "
+"and measured deflections at 36 locations, comparing them to design predictions. "
+"This is proof load testing: each measurement is one EI estimate, and the set of measurements forms a "
+"confidence interval for the bridge's actual stiffness. (Wikimedia Commons — public domain.)</em>\n",
+"</center>\n",
+"\n",
+"---\n",
+]),
+
 cell("code","setup",[
 "import subprocess, sys\n",
 "subprocess.run([sys.executable,'-m','pip','install','ipywidgets','--quiet'])\n",
@@ -136,22 +150,38 @@ cell("markdown","reflect",[
 
 cell("markdown","casestudy",[
 "---\n",
-"## ⚠️  Real-World Case: Proof Load Testing and the Silver Bridge Collapse (1967)\n",
+"## ⚠️  Real-World Case: Proof Load Testing the St. Anthony Falls Bridge (2008)\n",
 "\n",
-"On December 15, 1967, the Silver Bridge over the Ohio River at Point Pleasant, West Virginia collapsed during rush-hour traffic, killing 46 people. The collapse was traced to a single eye-bar chain link that had developed a stress corrosion crack over the bridge's 40-year life.\n",
+"When the I-35W bridge collapsed in Minneapolis on August 1, 2007 (see Chapter 10), "
+"the replacement — the St. Anthony Falls Bridge — was designed and built in just 13 months. "
+"Before it opened to traffic in September 2008, the Minnesota Department of Transportation (MnDOT) "
+"conducted a full-scale **proof load test**.\n",
 "\n",
-"**The connection to confidence intervals:**\n",
+"**What they did:**\n",
 "\n",
-"The Silver Bridge had never undergone systematic load testing to estimate its actual capacity. Engineers relied on the original design calculations — which assumed ideal material properties without accounting for degradation, corrosion, or manufacturing defects in the 1928 eye-bar chains.\n",
+"Engineers placed approximately 2 million pounds of precast concrete barriers at 18 positions across "
+"the bridge deck. At each loading configuration, they measured deflections at 36 sensor locations "
+"using high-precision surveying equipment. Each measurement produced one estimate of the bridge's "
+"actual flexural stiffness EI. The engineers then compared those EI estimates to what the finite "
+"element model had predicted.\n",
 "\n",
-"If periodic proof load tests had been conducted, each test would have produced an EI (or load capacity) estimate. As the bridge degraded:\n",
-"- The sample mean of those estimates would have drifted downward\n",
-"- The confidence interval would have captured that drift\n",
-"- Engineers could have flagged the decreasing capacity and reduced the load limit — or closed the bridge\n",
+"**The confidence interval connection:**\n",
 "\n",
-"In the aftermath, Congress passed the Federal Highway Act of 1968, creating the **National Bridge Inspection Standards** — requiring systematic inspection of every bridge every two years. These inspections produce exactly the kind of repeated measurements that generate confidence intervals for bridge condition.\n",
+"Across the 36 sensor locations and multiple loading configurations, the EI estimates scattered around "
+"a mean — with variability from sensor noise, thermal effects, and model simplifications. "
+"The engineers computed a confidence interval for the actual bridge stiffness:\n",
 "\n",
-"> *A confidence interval is not just a statistics exercise. It is a structured way of saying: here is what we know, here is how uncertain we are, and here is the range of values we can responsibly defend.*\n",
+"- A **narrow CI** would mean the measurements agreed closely, the bridge was behaving as designed, "
+"and the load rating could be set confidently\n",
+"- A **wide CI** would indicate unexpected variability — a reason to investigate further before "
+"certifying the bridge for full traffic loading\n",
+"\n",
+"The St. Anthony Falls Bridge results showed close agreement with design predictions. "
+"The CI was narrow, and the bridge opened on schedule.\n",
+"\n",
+"> *Every number the engineers reported — the estimated stiffness, the allowable load — came with a "
+"range of uncertainty. That range is the confidence interval. Ignoring it would mean pretending the "
+"measurements were exact. They never are.*\n",
 ]),
 
 cell("markdown","exp2intro",[

@@ -23,6 +23,19 @@ cell("markdown","title",[
 "- Explain why redundancy is not just convenient — it is a probabilistic safety strategy\n",
 ]),
 
+cell("markdown","photo",[
+"<center>\n",
+"<img src='https://upload.wikimedia.org/wikipedia/commons/4/4f/Oklahoma_City_Bombing_FEMA.jpg' width='700' />\n",
+"\n",
+"<em>The Alfred P. Murrah Federal Building, Oklahoma City, after the April 19, 1995 bombing. "
+"The destruction of front-face columns triggered a progressive collapse that killed 168 people "
+"and fundamentally changed how US codes address structural robustness. "
+"(FEMA — public domain.)</em>\n",
+"</center>\n",
+"\n",
+"---\n",
+]),
+
 cell("code","setup",[
 "import subprocess, sys\n",
 "subprocess.run([sys.executable,'-m','pip','install','ipywidgets','--quiet'])\n",
@@ -131,27 +144,48 @@ cell("markdown","conditional",[
 
 cell("markdown","casestudy",[
 "---\n",
-"## ⚠️  Real-World Case: The Ronan Point Collapse and Progressive Collapse (1968)\n",
+"## ⚠️  Real-World Case: The Alfred P. Murrah Federal Building (Oklahoma City, 1995)\n",
 "\n",
-"On May 16, 1968, a gas explosion on the 18th floor of Ronan Point — a 22-story residential tower in London — blew out a load-bearing corner panel. The floors above, no longer supported, collapsed onto the floors below. Each collapsing floor added its weight to the impact load on the floor below, which then also failed. Four people died.\n",
+"On April 19, 1995, a truck bomb detonated outside the Alfred P. Murrah Federal Building in "
+"Oklahoma City, destroying three ground-floor columns on the north face. Within seconds, a "
+"progressive collapse had killed 168 people — at the time, the deadliest domestic terrorist attack "
+"in US history.\n",
 "\n",
-"**The conditional probability chain:**\n",
+"**Why did losing three columns kill 168 people?**\n",
 "\n",
-"The building was designed as a series of stacked precast concrete panels. Each floor panel carried only the floors directly above it — there was almost no horizontal load redistribution. When one panel failed:\n",
+"The Murrah Building used widely spaced ground-floor columns with a massive **transfer girder** "
+"above that carried upper-floor loads and redistributed them to the columns below. "
+"When the blast destroyed the front columns, the transfer girder lost its support and failed. "
+"This triggered a conditional probability chain:\n",
 "\n",
-"$$P(\\text{floor } k \\text{ fails} \\mid \\text{floor } k{+}1 \\text{ has already failed}) \\approx 1.0$$\n",
+"$$P(\\\\text{floor fails} \\\\mid \\\\text{transfer girder has failed}) \\\\approx 1.0$$\n",
 "\n",
-"Because the load suddenly doubled (the weight of the fallen floor above added to the live load), every floor below was immediately overloaded. The events were **completely dependent** — the opposite of the independent-events assumption engineers often make.\n",
+"Without the transfer girder, the floors it had been carrying had no alternative load path. "
+"Each floor's collapse added its weight to the floor below — exactly the compounding load "
+"mechanism modeled in Experiment 2 below.\n",
 "\n",
-"**The result:** A localized explosion that should have damaged one apartment caused the progressive collapse of an entire corner of the building.\n",
+"**The code response:**\n",
 "\n",
-"After Ronan Point, building codes worldwide introduced **robustness requirements**: structures must maintain alternative load paths so that the failure of one element does not produce a conditional probability of failure near 1.0 for adjacent elements. This is the engineering definition of redundancy — and it is a statement about conditional probability.\n",
+"The Murrah collapse led the US General Services Administration and Department of Defense to develop "
+"explicit **progressive collapse prevention guidelines** (GSA 2003, UFC 4-023-03). "
+"These require engineers to show that losing any one primary member does not collapse more than a "
+"limited zone. In probability terms: *P(floor fails | column lost) must be kept low* by providing "
+"redundant load paths — the parallel-system principle from §14.1 applied to extreme events.\n",
+"\n",
+"> *The building did not collapse because the bomb was large. It collapsed because there was no "
+"alternative load path once the columns were gone — conditional probability near 1.0, exactly as "
+"the theory predicts.*\n",
 ]),
 
 cell("markdown","exp2intro",[
 "## 🔬 Interactive Experiment 2: Simulating Progressive Collapse\n",
 "\n",
-"The simulation below models a stack of floor panels. Each floor has a base failure probability p. But if the floor above has already failed, the load on this floor doubles — which raises its failure probability according to a simplified model.\n",
+"The simulation below models a stack of floor panels. Each floor has a base failure probability p. "
+"If the floor above has already failed, the load on this floor increases — raising its failure "
+"probability according to a **simplified model** (failure probability scales with the square of the "
+"load multiplier). This is not derived from any specific structural code or Hibbeler problem; "
+"it is a conceptual illustration of how conditional failure probability grows. Real progressive "
+"collapse analysis uses nonlinear dynamic models.\n",
 "\n",
 "Set the initial trigger probability and watch how many floors collapse on average.\n",
 ]),
